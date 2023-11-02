@@ -1,46 +1,53 @@
 package com.example.android_tasks
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.android_tasks.ui.theme.Android_TasksTheme
+import android.os.PersistableBundle
+import com.example.android_tasks.Base.BaseActivity
+import com.example.android_tasks.Base.BaseFragment
+import com.example.android_tasks.Utils.ActionType
+import com.example.android_tasks.ui.NewsFragment
+import com.example.android_tasks.ui.StartFragment
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
+    override val fragmentContainerId = R.id.fragment_container_view
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            Android_TasksTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        setContentView(R.layout.activity_main)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(
+                fragmentContainerId,
+                StartFragment()
+            )
+                .commit()
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun goToScreen(
+        actionType: ActionType,
+        destination: BaseFragment,
+        tag: String?,
+        isAddToBackStack: Boolean
+    ) {
+        supportFragmentManager.beginTransaction().apply {
+            when (actionType) {
+                ActionType.ADD -> {
+                    this.add(fragmentContainerId, destination, tag)
+                }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Android_TasksTheme {
-        Greeting("Android")
+                ActionType.REPLACE -> {
+                    this.replace(fragmentContainerId, destination, tag)
+                }
+
+                ActionType.REMOVE -> {
+                    this.remove(destination)
+                }
+
+                else -> Unit
+            }
+            if (isAddToBackStack) {
+                this.addToBackStack(null)
+            }
+        }.commit()
     }
 }
