@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/notificationFragment">
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.android_tasks.ui.fragments.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/corutinesSettingsFragment"
+        android:name="com.example.android_tasks.ui.fragments.CorutinesSettingsFragment"
+        android:label="CorutinesSettingsFragment" />
+    <fragment
+        android:id="@+id/notifySettingsFragment"
+        android:name="com.example.android_tasks.ui.fragments.NotifySettingsFragment"
+        android:label="NotifySettingsFragment" />
+</navigation>
