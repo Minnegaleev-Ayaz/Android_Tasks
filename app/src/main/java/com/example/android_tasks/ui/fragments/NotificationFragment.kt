@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.android_tasks.MainActivity
 import com.example.android_tasks.R
 import com.example.android_tasks.base.BaseFragment
 import com.example.android_tasks.databinding.FragmentNotificationBinding
@@ -21,6 +22,7 @@ class NotificationFragment:BaseFragment(R.layout.fragment_notification) {
     private val viewBinding: FragmentNotificationBinding by viewBinding(FragmentNotificationBinding::bind)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as MainActivity)?.requestPermission()
         with(viewBinding){
             sendNotifyBtn.setOnClickListener{
                 if (ContextCompat.checkSelfPermission(
@@ -29,16 +31,28 @@ class NotificationFragment:BaseFragment(R.layout.fragment_notification) {
                     ) == PackageManager.PERMISSION_DENIED
                 ) {
                     if (requireActivity().shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-                        Toast.makeText(requireActivity(), "Permission Grante", Toast.LENGTH_SHORT)
+                        AlertDialog.Builder(requireContext())
+                            .setTitle(getString(R.string.permission_denied_pattern, "Уведомления"))
+                            .setMessage(getString(R.string.permission_denined_first_time_desc))
+                            .setPositiveButton(
+                                getString(R.string.back)
+                            ) { dialog, which ->
+                            }.setNegativeButton(
+                                getString(R.string.go_to_settings)){
+                                    dialog,which ->
+                                openApplicationSettings()
+                                }
+
                             .show()
                     } else {
                         AlertDialog.Builder(requireContext())
                             .setTitle(getString(R.string.permission_denied_pattern, "Уведомления"))
-                            .setMessage(getString(R.string.permission_denined_desc))
+                            .setMessage(getString(R.string.permission_denined_second_time_desc))
                             .setPositiveButton(
                                 getString(R.string.go_to_settings)
                             ) { dialog, which ->
                                 openApplicationSettings()
+
                             }
                             .show()
                     }

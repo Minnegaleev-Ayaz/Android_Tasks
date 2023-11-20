@@ -7,7 +7,22 @@
     <string name="corutine_settings">Настройка карутин</string>
     <string name="send_notify">Отправить уведомление</string>
     <string name="permission_denied_pattern">Вы отклонили следующие разрешения: %1$s</string>
-    <string name="permission_denined_desc">Приложение работает некорректно,пожалуйста, предоставьте
+    <string name="permission_denined_first_time_desc">Приложение работает некорректно,пожалуйста, перезапустите приложение и выберите «разрешить» для уведомлений или измените свой выбор в настройках</string>
+    <string name="permission_denined_second_time_desc">Приложение работает некорректно,пожалуйста, предоставьте
         разрешение через настройки</string>
     <string name="go_to_settings">Перейти в настройки</string>
+    <string name="back">назад</string>
+    <string name="notify_importance">Важность уведомления</string>
+    <string name="notify_privacy">Приватность уведомления</string>
+    <string name="detail_text">Детализация текста</string>
+    <string name="additional_action">Дополнительные кнопки</string>
+    <string name="Urgent">Очень высокий</string>
+    <string name="High">Высокий</string>
+    <string name="Medium">Средний</string>
+    <string name="Public">Доступный</string>
+    <string name="Secret">Секретный</string>
+    <string name="Private">Приватный</string>
+    <string name="Yes">Да</string>
+    <string name="No">Нет</string>
+
 </resources>

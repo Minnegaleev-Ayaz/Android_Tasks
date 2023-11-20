@@ -50,7 +50,6 @@ class MainActivity : BaseActivity() {
             }
             bottomNav.setOnItemReselectedListener {}
         }
-        requestPermission()
     }
 
     override fun goToScreen(
