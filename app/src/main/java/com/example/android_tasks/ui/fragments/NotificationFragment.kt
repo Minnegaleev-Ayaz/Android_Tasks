@@ -8,22 +8,22 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.android_tasks.MainActivity
 import com.example.android_tasks.R
 import com.example.android_tasks.base.BaseFragment
 import com.example.android_tasks.databinding.FragmentNotificationBinding
+import com.example.android_tasks.utils.NotificationsHandler
 
 
 class NotificationFragment:BaseFragment(R.layout.fragment_notification) {
-    private val viewBinding: FragmentNotificationBinding by viewBinding(FragmentNotificationBinding::bind)
+    private val viewBinding by viewBinding(FragmentNotificationBinding::bind)
+    private val notificationHandler = NotificationsHandler()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as MainActivity)?.requestPermission()
         with(viewBinding){
+
             sendNotifyBtn.setOnClickListener{
                 if (ContextCompat.checkSelfPermission(
                         requireContext(),
@@ -56,6 +56,10 @@ class NotificationFragment:BaseFragment(R.layout.fragment_notification) {
                             }
                             .show()
                     }
+                } else{
+                    notificationHandler.createNotification(requireContext(),titleEt.text.toString(),descvEt.text.toString(),1)
+                    titleEt.text.clear()
+                    descvEt.text.clear()
                 }
             }
         }

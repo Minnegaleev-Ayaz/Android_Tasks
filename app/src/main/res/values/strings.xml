@@ -24,5 +24,16 @@
     <string name="Private">Приватный</string>
     <string name="Yes">Да</string>
     <string name="No">Нет</string>
-
+    <string name="Error">Ошибка</string>
+    <string name="ErrorBody">Перезапустите приложение</string>
+    <string name="counts">Количество вызовов</string>
+    <string name="value_start">Значение </string>
+    <string name="value">Значение : %d</string>
+    <string name="async">Паралельное выполнение</string>
+    <string name="stop_on_back">Завершать активные карутины \nпри сворачивании</string>
+    <string name="corutine_finished">Корутина %d отработала</string>
+    <string name="succesful">Успешно</string>
+    <string name="corutinesIsFinished">Корутины отработаны</string>
+    <string name="corutinesFailed">Потрачено</string>
+    <string name="stopOnBackEX">Вы вышли из приложения</string>
 </resources>

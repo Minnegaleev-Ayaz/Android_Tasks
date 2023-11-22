@@ -46,7 +46,9 @@ dependencies {
     val appcompatVersion = "1.6.1"
     implementation("androidx.appcompat:appcompat:$appcompatVersion")
 
-    val androidMaterialVersion = "1.9.0"
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+
+    val androidMaterialVersion = "1.4.0"
     implementation("com.google.android.material:material:$androidMaterialVersion")
 
     val viewBindingDelegateVersion = "1.5.9"
@@ -58,7 +60,9 @@ dependencies {
 
     val ciceroneVersion = "7.1"
     implementation("com.github.terrakok:cicerone:$ciceroneVersion")
-
+    val coroutinesVersion = "1.7.3"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
     // Test section
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/notify_importance_tv"
@@ -13,7 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
         android:layout_marginVertical="20dp"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         />
     <View
         android:layout_width="match_parent"
@@ -24,51 +26,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notify_importance_tv"/>
-    <RadioButton
-        android:id="@+id/urgent_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notify_importance_tv"/>
-    <TextView
-        android:id="@+id/urgent_tv"
+    <RadioGroup
+        android:id="@+id/notify_importance_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Urgent"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/urgent_rb"/>
-    <RadioButton
-        android:id="@+id/high_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/urgent_rb"/>
-    <TextView
-        android:id="@+id/high_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/High"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/high_rb"/>
-    <RadioButton
-        android:id="@+id/medium_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/high_rb"/>
-    <TextView
-        android:id="@+id/medium_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Medium"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/medium_rb"/>
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/notify_importance_tv">
+        <RadioButton android:id="@+id/urgent_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Urgent" />
+        <RadioButton android:id="@+id/high_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/High"/>
+        <RadioButton android:id="@+id/medium_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Medium" />
+    </RadioGroup>
 
     <View
         android:layout_width="match_parent"
@@ -76,7 +55,7 @@
         android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medium_rb" />
+        app:layout_constraintTop_toBottomOf="@id/notify_importance_rg" />
 
     <TextView
         android:id="@+id/notify_privacy_tv"
@@ -85,10 +64,11 @@
         android:text="@string/notify_privacy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medium_tv"
+        app:layout_constraintTop_toBottomOf="@id/notify_importance_rg"
         android:gravity="center"
         android:layout_marginVertical="20dp"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         />
     <View
         android:layout_width="match_parent"
@@ -98,52 +78,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notify_privacy_tv"/>
-    <RadioButton
-        android:id="@+id/public_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notify_privacy_tv"/>
-    <TextView
-        android:id="@+id/public_tv"
-        android:layout_width="match_parent"
-        android:text="@string/Public"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/public_rb"/>
-    <RadioButton
-        android:id="@+id/secret_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/public_rb"/>
-    <TextView
-        android:id="@+id/secret_tv"
+    <RadioGroup
+        android:id="@+id/notify_privacy_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Secret"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/secret_rb"/>
-    <RadioButton
-        android:id="@+id/private_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/secret_rb"/>
-    <TextView
-        android:id="@+id/private_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Private"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/private_rb"/>
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/notify_privacy_tv">
+        <RadioButton android:id="@+id/public_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Public" />
+        <RadioButton android:id="@+id/secret_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Secret"/>
+        <RadioButton android:id="@+id/private_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Private"/>
+    </RadioGroup>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -151,7 +107,7 @@
         android:layout_marginHorizontal="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/private_rb"/>
+        app:layout_constraintTop_toBottomOf="@id/notify_privacy_rg"/>
     <TextView
         android:id="@+id/detailed_text_tv"
         android:layout_width="match_parent"
@@ -159,10 +115,11 @@
         android:text="@string/detail_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/private_tv"
+        app:layout_constraintTop_toBottomOf="@id/notify_privacy_rg"
         android:gravity="center"
         android:layout_marginVertical="20dp"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         />
     <View
         android:layout_width="match_parent"
@@ -173,36 +130,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailed_text_tv"/>
 
-    <RadioButton
-        android:id="@+id/detail_yes_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailed_text_tv"/>
-    <TextView
-        android:id="@+id/detail_yes_tv"
-        android:layout_width="match_parent"
-        android:text="@string/Yes"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/detail_yes_rb"/>
-    <RadioButton
-        android:id="@+id/detail_no_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_yes_rb"/>
-    <TextView
-        android:id="@+id/detail_no_tv"
+    <RadioGroup
+        android:id="@+id/detailed_text_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/No"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/detail_no_rb"/>
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/detailed_text_tv">
+        <RadioButton android:id="@+id/det_yes_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Yes"/>
+        <RadioButton android:id="@+id/det_no_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/No" />
+    </RadioGroup>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -210,7 +154,7 @@
         android:layout_marginHorizontal="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_no_rb"/>
+        app:layout_constraintTop_toBottomOf="@id/detailed_text_rg"/>
     <TextView
         android:id="@+id/additional_action_tv"
         android:layout_width="match_parent"
@@ -218,10 +162,11 @@
         android:text="@string/additional_action"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detail_no_rb"
+        app:layout_constraintTop_toBottomOf="@id/detailed_text_rg"
         android:gravity="center"
         android:layout_marginVertical="20dp"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         />
     <View
         android:layout_width="match_parent"
@@ -231,36 +176,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/additional_action_tv"/>
-    <RadioButton
-        android:id="@+id/add_yes_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/additional_action_tv"/>
-    <TextView
-        android:id="@+id/add_yes_tv"
+    <RadioGroup
+        android:id="@+id/additional_action_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Yes"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/add_yes_rb"/>
-    <RadioButton
-        android:id="@+id/add_no_rb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_yes_rb"/>
-    <TextView
-        android:id="@+id/add_no_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/No"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginVertical="6dp"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@id/add_no_rb"/>
+        android:orientation="vertical"
+
+        app:layout_constraintTop_toBottomOf="@id/additional_action_tv">
+        <RadioButton android:id="@+id/add_yes_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/Yes"/>
+        <RadioButton android:id="@+id/add_no_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/No"
+            />
+    </RadioGroup>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -268,6 +202,7 @@
         android:layout_marginHorizontal="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_no_rb"/>
+        app:layout_constraintTop_toBottomOf="@id/additional_action_rg"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

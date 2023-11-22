@@ -1,8 +1,13 @@
 package com.example.android_tasks
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -17,6 +22,9 @@ import com.example.android_tasks.utils.ActionType
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity() {
     override val fragmentContainerId:Int = R.id.fragment_container_view
@@ -24,6 +32,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?, ) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        additionalActions()
         /*val navHost = supportFragmentManager.findFragmentById(fragmentContainerId) as NavHostFragment
         navHost.navController.navInflater.inflate(R.navigation.main_graph).setStartDestination(R.id.notificationFragment)
         val navController = navHost.navController
@@ -49,6 +58,9 @@ class MainActivity : BaseActivity() {
                }
             }
             bottomNav.setOnItemReselectedListener {}
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermission()
         }
     }
 
@@ -80,9 +92,25 @@ class MainActivity : BaseActivity() {
         }.commit()
     }
     fun requestPermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_REQUEST_CODE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_REQUEST_CODE)
+        }
+    }
+    fun additionalActions(){
+        val extras = intent.extras
+        if (extras != null){
+            if (extras.getInt(ACTION_KEY)==12){
+                this.goToScreen(ActionType.REPLACE,NotifySettingsFragment(),null,true)
+            }else if(extras.getInt(ACTION_KEY)==23){
+                Toast.makeText(this,"Какой-то текст",Toast.LENGTH_SHORT).show()
+            }else{
+                Unit
+            }
+        }
     }
     companion object{
         private const val NOTIFICATION_REQUEST_CODE=12101
+        private const val ACTION_KEY = "ACTION_KEY"
+        const val LOG_TAG = "LOG_TAG"
     }
 }
