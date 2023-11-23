@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Android_Tasks</string>
+    <string name="notification">Уведомления</string>
+    <string name="title">заголовок</string>
+    <string name="desc">описание</string>
+    <string name="notify_settings">Настройка уведомлений</string>
+    <string name="corutine_settings">Настройка карутин</string>
+    <string name="send_notify">Отправить уведомление</string>
+    <string name="permission_denied_pattern">Вы отклонили следующие разрешения: %1$s</string>
+    <string name="permission_denined_first_time_desc">Приложение работает некорректно,пожалуйста, перезапустите приложение и выберите «разрешить» для уведомлений или измените свой выбор в настройках</string>
+    <string name="permission_denined_second_time_desc">Приложение работает некорректно,пожалуйста, предоставьте
+        разрешение через настройки</string>
+    <string name="go_to_settings">Перейти в настройки</string>
+    <string name="back">назад</string>
+    <string name="notify_importance">Важность уведомления</string>
+    <string name="notify_privacy">Приватность уведомления</string>
+    <string name="detail_text">Детализация текста</string>
+    <string name="additional_action">Дополнительные кнопки</string>
+    <string name="Urgent">Очень высокий</string>
+    <string name="High">Высокий</string>
+    <string name="Medium">Средний</string>
+    <string name="Public">Доступный</string>
+    <string name="Secret">Секретный</string>
+    <string name="Private">Приватный</string>
+    <string name="Yes">Да</string>
+    <string name="No">Нет</string>
+    <string name="Error">Ошибка</string>
+    <string name="ErrorBody">Перезапустите приложение</string>
+    <string name="counts">Количество вызовов</string>
+    <string name="value_start">Значение </string>
+    <string name="value">Значение : %d</string>
+    <string name="async">Паралельное выполнение</string>
+    <string name="stop_on_back">Завершать активные карутины \nпри сворачивании</string>
+    <string name="corutine_finished">Корутина %d отработала</string>
+    <string name="succesful">Успешно</string>
+    <string name="corutinesIsFinished">Корутины отработаны</string>
+    <string name="corutinesFailed">Потрачено</string>
+    <string name="stopOnBackEX">Вы вышли из приложения</string>
 </resources>
