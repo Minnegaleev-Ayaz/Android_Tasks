@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android_Tasks</string>
+    <string name="count_element">Введите количество элементов</string>
+    <string name="to_show">Перейти</string>
 </resources>
